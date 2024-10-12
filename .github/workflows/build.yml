@@ -39,6 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SERENITY_TOKEN }}  # Needed to get PR information, if any
         shell: powershell
+        working-directory: "src"
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"APJ-Barryyu_Serenity" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build
