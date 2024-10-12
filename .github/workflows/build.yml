@@ -37,7 +37,7 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.Serenity_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.SERENITY_TOKEN }}  # Needed to get PR information, if any
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"APJ-Barryyu_Serenity" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
